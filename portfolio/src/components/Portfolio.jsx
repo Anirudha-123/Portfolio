@@ -13,11 +13,21 @@ import {
   ChevronDown,
 } from "lucide-react";
 import "./portfolio.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+
+   useEffect(() => {
+    AOS.init({
+      duration: 1000, // Duration for the animations
+      // once: true, // Animation triggers once
+    });
+  }, []);
 
   useEffect(() => {
     setIsVisible(true);
@@ -170,7 +180,7 @@ const Portfolio = () => {
               <a href="mailto:anirudha0045@gmail.com" className="social-icon"><Mail size={24} /></a>
             </div>
           </div>
-          <div className={`hero-image-container ${isVisible ? 'fade-in-right' : ''}`}>
+          <div className={`hero-image-container ${isVisible ? 'fade-in-right' : ''}`} data-aos="fade-right">
             <div className="hero-image-wrapper">
               <img 
                 src="/My_img.jpg" 
